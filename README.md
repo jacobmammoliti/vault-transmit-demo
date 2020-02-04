@@ -10,7 +10,7 @@ This demo requires a Vault server to be setup. A demo Vault server can be used b
 These are the following steps I use to configure Vault for this demo application.
 
 Set up Vault Database Secrets Engine for dynamic credential creation. The application does not use static credentials and leverages Vault to generate credentials on the fly.
-More can be read about the Secrets Engine (here)[https://www.vaultproject.io/docs/secrets/databases/index.html].
+More can be read about the Secrets Engine [here](https://www.vaultproject.io/docs/secrets/databases/index.html).
 ```shell
 $ vault secrets enable database
 Success! Enabled the database secrets engine at: database/
