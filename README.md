@@ -102,8 +102,18 @@ identity_policies      []
 policies               ["admin-policy" "default"]
 token_meta_username    jacobm
 
-$ python3 app.py
-Username: jacobm
+$ python3 app.py --help
+usage: app.py [-h] [--decrypt DECRYPT] [--encrypt ENCRYPT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --decrypt DECRYPT, -d DECRYPT
+                        decrypts the password of the user
+  --encrypt ENCRYPT, -e ENCRYPT
+                        encrypts the password of the user
+
+# encrypt a password
+$ python3 app.py --encrypt jacobm
 Password: password
 Successfully created new account for jacobm
 
@@ -112,5 +122,9 @@ postgres=> SELECT * FROM users;
  username |                         password                          
 ----------+-----------------------------------------------------------
  jacobm   | vault:v1:f0k1odEyI8WEH2x0rAQ6PQv9mo56UDmPZ+WWczOsV6aIgA==
-(2 rows)
+(1 row)
+
+# decrypt the password
+python3 app.py --decrypt jacob
+The password for jacob is password.
 ```
