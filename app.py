@@ -2,7 +2,6 @@ import hvac
 import psycopg2
 import base64
 import os
-import sys
 import argparse
 
 hvac_client = {
