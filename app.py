@@ -127,7 +127,8 @@ def main():
         connection = psql_connection("user-role")
 
         # Insert encrypted data into database
-        psql_input("INSERT INTO users (username, password) VALUES (%s, %s);", args.encrypt, ciphertext, connection)
+        psql_input("INSERT INTO users (username, password) VALUES (%s, %s);", 
+                   args.encrypt, ciphertext, connection)
 
         print ("Successfully created new account for {}".format(args.encrypt))
     elif args.decrypt:
@@ -135,7 +136,8 @@ def main():
         connection = psql_connection("user-role")
 
         # Insert encrypted data into database
-        ciphertext = psql_retrival("SELECT password FROM users WHERE username=%s;", args.decrypt, connection)
+        ciphertext = psql_retrival("SELECT password FROM users WHERE username=%s;", 
+                                   args.decrypt, connection)
 
         plaintext = transit_decrypt(ciphertext[0][0])
 
